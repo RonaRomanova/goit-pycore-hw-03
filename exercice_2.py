@@ -31,5 +31,5 @@ def get_numbers_ticket(min_num, max_num, quantity):
     return sorted(numbers)
 
 
-lottery_numbers = get_numbers_ticket(1, 27, 6)
+lottery_numbers = get_numbers_ticket(1, 27, 5)
 print("Your lottery numbers:", lottery_numbers) 
