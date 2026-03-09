@@ -12,5 +12,24 @@ quantity — кількість чисел, які потрібно вибрат
 2. Функція генерує вказану кількість унікальних чисел у заданому діапазоні.
 3. Функція повертає список випадково вибраних, відсортованих чисел. Числа в наборі не повинні повторюватися. Якщо параметри не відповідають заданим обмеженням, функція повертає пустий список.
 '''
+import random
+
+def get_numbers_ticket(min_num, max_num, quantity):
+    '''
+    Генерує набір унікальних випадкових чисел для лотерей.
+    '''
+ 
+    if min_num < 1 or max_num > 1000 or min_num >= max_num or quantity < 1 or quantity > (max_num - min_num + 1):
+        print("Invalid parameters. Please check the input values: min should be >= 1, max should be <= 1000, min should be less than max, and quantity should be between 1 and the range of numbers.")
+        return []
+    
+    numbers = set()
+    while len(numbers) < quantity:
+        number = random.randint(min_num, max_num)
+        numbers.add(number)
+    
+    return sorted(numbers)
 
 
+lottery_numbers = get_numbers_ticket(1, 27, 6)
+print("Your lottery numbers:", lottery_numbers) 
